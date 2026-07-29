@@ -15,34 +15,32 @@ function ProductsList() {
 
             const getProductsData = await getAllProducts()
             setProducts(getProductsData)
+
             setError(false)
             setLoading(false)
 
         } catch (err) {
-            console.log('in catch')
             setError(`Cannot get all products ${err.message}`)
-            console.log(`Cannot get all products ${err}`)
             setLoading(false)
         }
     }
 
     useEffect(() => { getData() }, [])
 
-    if(loading){
-        return <Spin spinning={true} size='large' />
+    if (loading) {
+        return (<div><br /><Spin spinning={true} size='large' /><br /></div>)
     }
-    else if(error){
-        return <p>Error: {error}</p>
+    else if (error) {
+        return (<div><br /><p>Error: {error}</p><br /></div>)
     }
-    
+
     return (
         <>
-            <div>
-                <h1>Products List</h1>
-
-                {products.length === 0 ? <p>No Products to show</p> : (<>
+            <h1 className='list-header'>Products List</h1>
+            <div className='list-container'>
+                {products.length === 0 ? <p>No Products to show...</p> : (<>
                     {products.map((oneProduct) =>
-                        <div key={oneProduct._id}>
+                        <div className="product-item" key={oneProduct._id}>
                             <p>{oneProduct.title}</p>
                             <Link to={`/products/${oneProduct._id}`}>{oneProduct.title} Details</Link>
                         </div>)}

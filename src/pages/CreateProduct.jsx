@@ -35,25 +35,27 @@ function CreateProduct() {
 
     return (
         <>
-            <h1>Create Product</h1>
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="title">Title: </label>
-                <input type="text" name='title' id='title' onChange={handleChange} />
-                <br />
-                <label htmlFor="description">Description: </label>
-                <input type="text" name='description' id='description' onChange={handleChange} />
-                <br />
-                <label htmlFor="category">Category: </label>
-                <input type="text" name='category' id='category' onChange={handleChange} />
-                <br />
-                <label htmlFor="price">Price: </label>
-                <input type="number" step={0.01} name='price' id='price' onChange={handleChange} />
-                <br />
-                <label htmlFor="quantity">Quantity: </label>
-                <input type="number" name='quantity' id='quantity' onChange={handleChange} />
-                <br />
-                <button>Add</button>
-            </form>
+            <div className="form-container">
+                <h1>Create Product</h1>
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="title">Title: </label>
+                    <input type="text" name='title' id='title' onChange={handleChange} />
+                    <br />
+                    <label htmlFor="description">Description: </label>
+                    <input type="text" name='description' id='description' onChange={handleChange} />
+                    <br />
+                    <label htmlFor="category">Category: </label>
+                    <input type="text" name='category' id='category' onChange={handleChange} />
+                    <br />
+                    <label htmlFor="price">Price: </label>
+                    <input type="number" step={0.01} name='price' id='price' onChange={handleChange} />
+                    <br />
+                    <label htmlFor="quantity">Quantity: </label>
+                    <input type="number" name='quantity' id='quantity' onChange={handleChange} />
+                    <br />
+                    <button>Add</button>
+                </form>
+            </div>
         </>
     )
 }
